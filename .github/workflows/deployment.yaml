@@ -29,12 +29,10 @@ jobs:
 
       - name: 🚧 Build project for production
         run: |
-          rm -r ./docs
+          rm -rf ./docs
           npm run build-prod
-          cp -r "./dist/portfolio/browser/" "./docs"
+          cp -r "./dist/rock-paper-scissors/browser/" "./docs"
           cp "./docs/index.html" "./docs/404.html"
-          cp "./src/robots.txt" "./docs/robots.txt"
-          cp "./src/sitemap.xml" "./docs/sitemap.xml"
 
       - name: 🎉 Commit & Push
         run: |

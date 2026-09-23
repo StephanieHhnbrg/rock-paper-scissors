@@ -1,0 +1,20 @@
+<div class="game">
+  <p>&nbsp;</p>
+  <div class="row">
+    <app-header></app-header>
+    <app-score-board></app-score-board>
+  </div>
+
+  <div>
+    <app-countdown></app-countdown>
+    <app-camera [(move)]="playerMove" (onCameraToggle)="onCameraToggle($event)"></app-camera>
+  </div>
+
+  @if(isCameraReady()) {
+    <app-round-score-board [playerMove]="playerMove" [opponentMove]="opponentMove"></app-round-score-board>
+    <app-start-button (click)="startRound()"></app-start-button>
+  }
+
+
+</div>
+

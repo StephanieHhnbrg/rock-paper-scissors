@@ -1,0 +1,57 @@
+name: deploys frontend
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - prod
+    paths-ignore:
+      - 'dist/**'
+      - 'docs/**'
+      - 'backend/**'
+
+jobs:
+  build:
+    env:
+      CI_COMMIT_MESSAGE: Updates CI/CD Build Artifacts
+      CI_COMMIT_AUTHOR: CI/CD
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🌿 Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: prod
+
+      - name: 💽 Install dependencies
+        run: |
+          npm ci
+
+      - name: 🚧 Build project for production
+        run: |
+          rm -r ./docs
+          npm run build-prod
+          cp -r "./dist/portfolio/browser/" "./docs"
+          cp "./docs/index.html" "./docs/404.html"
+          cp "./src/robots.txt" "./docs/robots.txt"
+          cp "./src/sitemap.xml" "./docs/sitemap.xml"
+
+      - name: 🎉 Commit & Push
+        run: |
+          git add docs/
+          git stash push -- docs
+          git restore .
+
+          git fetch origin gh-pages
+          git checkout gh-pages
+
+          git rm -rf . 2>/dev/null || true
+          git clean -fd
+
+          git stash pop
+          git add docs/
+
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "username@users.noreply.github.com"
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push -f

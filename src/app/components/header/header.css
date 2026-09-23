@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-family: 'Brush Script MT', cursive;
+  font-size: xxx-large;
+}
+
+.subtitle {
+  color: #9299c9;
+  font-size: 15px;
+}

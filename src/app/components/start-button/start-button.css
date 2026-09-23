@@ -1,0 +1,13 @@
+.button {
+  border-radius: 25px;
+  margin: 1rem;
+  padding: 1rem;
+  background: transparent;
+  box-shadow: 0 0 20px 5px rgba(91, 73, 190, 0.5);
+  text-align: center;
+}
+
+.button:hover {
+  cursor: pointer;
+  transform: scale(105%);
+}

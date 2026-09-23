@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "RPS": {
+    "rock-paper-scissors": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,9 +24,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "styles": ["src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -56,10 +54,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "RPS:build:production"
+              "buildTarget": "rock-paper-scissors:build:production"
             },
             "development": {
-              "buildTarget": "RPS:build:development"
+              "buildTarget": "rock-paper-scissors:build:development"
             }
           },
           "defaultConfiguration": "development"

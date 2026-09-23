@@ -1,0 +1,25 @@
+<div class="footer row">
+  <div class="row">
+    <div class="emoji gradient-bg">
+      @if (playerMove != null) {
+      {{ moveEmoji[playerMove!] }}
+      } @else {😊}
+    </div>
+    <div class="col hidden-on-mobile">
+      <p>You</p>
+      <p>{{playerMove}}</p>
+    </div>
+  </div>
+  <div class="col"><p class="gradient-text">VS</p></div>
+  <div class="row">
+    <div class="col hidden-on-mobile">
+      <p>Opponent</p>
+      <p>{{opponentMove}}</p>
+    </div>
+    <div class="emoji gradient-bg">
+      @if (opponentMove != null) {
+      {{ moveEmoji[opponentMove!] }}
+      } @else {👾}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+.countdown-container {
+  position: relative;
+  width: 44vw;
+  height: 1rem;
+}
+
+.countdown {
+  position: absolute;
+  top: 0;
+  left: 45%;
+  width: 44vw;
+  height: 1rem;
+  z-index: 10;
+}
+
+@media only screen and (max-width: 800px) {
+  .countdown-container, .countdown {
+    width: 66vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .countdown-container, .countdown {
+    width: 88vw;
+  }
+}
+
+.countdown-number {
+  font-size: 100px;
+  font-weight: bold;
+  color: black;
+
+  animation: countdown 2s linear infinite;
+}
+
+@keyframes countdown {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

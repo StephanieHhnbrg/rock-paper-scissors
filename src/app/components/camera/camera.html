@@ -1,0 +1,18 @@
+<div class="video-container" (click)="toggleCamera()">
+  @if (isCameraOff) {
+  <div class="video-placeholder gradient-bg">
+    <div class="video-placeholder-text">
+      <p class="camera">📷</p>
+      <p>Click here to turn your camera on to play.</p>
+    </div>
+  </div>
+  } @else {
+  <div class="camera-status">
+    <span class="status-dot"></span>Camera active
+  </div>
+  }
+  <div class="video">
+    <video #video autoplay muted playsinline></video>
+  </div>
+
+</div>

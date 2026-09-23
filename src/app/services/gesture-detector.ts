@@ -17,7 +17,7 @@ export class GestureDetector {
         vision,
         {
           baseOptions: {
-            modelAssetPath: '/models/hand_landmarker.task'
+            modelAssetPath: './models/hand_landmarker.task'
           },
           runningMode: 'VIDEO',
           numHands: 1
